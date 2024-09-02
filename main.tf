@@ -16,25 +16,21 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "encryption" {
   }
 }
 
-resource "aws_iam_policy" "read_policy" {
-  name        = "nops-container-cost-s3-read-only"
-  description = "Read-only access to nops-container-cost bucket"
+resource "aws_iam_role_policy" "read_inline_policy" {
+  name = "container-cost-read-only"
+  role = var.role_name
+
   policy = jsonencode({
     Version = "2012-10-17",
     Statement = [{
-      Effect = "Allow"
-      Action = ["s3:GetObject", "s3:ListBucket"]
+      Effect   = "Allow"
+      Action   = ["s3:GetObject", "s3:ListBucket"]
       Resource = [
         "arn:aws:s3:::nops-container-cost-${data.aws_caller_identity.current.account_id}",
         "arn:aws:s3:::nops-container-cost-${data.aws_caller_identity.current.account_id}/*"
       ]
     }]
   })
-}
-
-resource "aws_iam_role_policy_attachment" "attach_read_policy" {
-  policy_arn = aws_iam_policy.read_policy.arn
-  role      = var.role_name
 }
 
 resource "aws_iam_user" "nops_container_cost_user" {
