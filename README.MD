@@ -35,7 +35,7 @@ export AWS_SECRET_ACCESS_KEY=<Your_Secret_Access_Key>
 export AWS_DEFAULT_REGION=<Your_Region>
 ```
 ## Step 2: Update variables.tf
-Update the variables with your values:
+Update the following variables default with your values:
 ```bash
 include_regions # Comma-separated list of regions where EKS cluster are created (e.g., us-east-1,us-east-2,us-west-1,us-west-2) or left blank to use the region where the Lambda will be created
 ```
