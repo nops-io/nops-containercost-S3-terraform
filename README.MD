@@ -1,5 +1,5 @@
-# Container Cost Terraform Project
-This repository contains Terraform configurations to manage infrastructure on AWS for Container Cost Integration. Follow the steps below to authenticate with AWS, run Terraform commands, and manage your infrastructure.
+# nOps Container Cost Terraform Project
+This repository contains Terraform configurations to manage infrastructure on AWS for nOps Container Cost Integration. Follow the steps below to authenticate with AWS, run Terraform commands, and manage your infrastructure.
 ## Prerequisites
 - [Terraform](https://www.terraform.io/downloads.html) installed on your local machine.
 - [AWS CLI](https://aws.amazon.com/cli/) installed and configured.
